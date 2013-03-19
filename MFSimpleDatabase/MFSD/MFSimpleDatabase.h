@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
-#import "FMResultSet.h"
 #import "FMDatabaseQueue.h"
 #import "MFDbCollection.h"
 #import "MFDbRow.h"
+#import "MFDbRow+DictionaryAdapter.h"
 
 /**
  * 对FMDatabase进行封装，提供线程安全的数据库操作

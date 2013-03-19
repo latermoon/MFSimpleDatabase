@@ -11,8 +11,7 @@
 @implementation MFDbRow
 @synthesize dataDict;
 
-#pragma mark
-#pragma mark Init
+#pragma mark - Init
 - (MFDbRow *)initWithDictionary:(NSDictionary *)aDataDict
 {
     self = [super init];
@@ -28,7 +27,7 @@
     [super dealloc];
 }
 
-#pragma mark --
+#pragma mark -
 - (id)objectForKey:(id)aKey
 {
     // 将数据库中的NSNull
@@ -54,20 +53,7 @@
     [[self mutableDict] removeObjectForKey:aKey];
 }
 
-- (NSDate *)dateForKey:(NSString *)aKey defaultValue:(NSDate *)value
-{
-    id origin = [self objectForKey:aKey defaultValue:value];
-    if ([origin isKindOfClass:[NSDate class]]) {
-        return origin;
-    } else if ([origin isKindOfClass:[NSNumber class]]) {
-        return [NSDate dateWithTimeIntervalSince1970:[origin doubleValue]];
-    } else {
-        return value;
-    }
-}
-
-#pragma mark
-#pragma mark Overide
+#pragma mark - Overide
 - (NSString *)description
 {
     return [dataDict description];

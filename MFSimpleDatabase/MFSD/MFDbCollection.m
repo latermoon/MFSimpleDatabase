@@ -8,7 +8,6 @@
 
 #import "MFDbCollection.h"
 #import "MFSimpleDatabase.h"
-#import "FMDatabase.h"
 
 @implementation MFDbCollection
 @synthesize database, tableName;

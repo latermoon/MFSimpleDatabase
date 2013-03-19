@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F15ADC516F8420E000932C7 /* MFDbRow+DictionaryAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F15ADC416F8420E000932C7 /* MFDbRow+DictionaryAdapter.m */; };
 		1F9471D516F71F9800F4A580 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9471D416F71F9800F4A580 /* UIKit.framework */; };
 		1F9471D716F71F9800F4A580 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9471D616F71F9800F4A580 /* Foundation.framework */; };
 		1F9471D916F71F9800F4A580 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9471D816F71F9800F4A580 /* CoreGraphics.framework */; };
@@ -25,10 +26,11 @@
 		1F94720B16F7227A00F4A580 /* MFDbCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F94720616F7227A00F4A580 /* MFDbCollection.m */; };
 		1F94720C16F7227A00F4A580 /* MFDbRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F94720816F7227A00F4A580 /* MFDbRow.m */; };
 		1F94720D16F7227A00F4A580 /* MFSimpleDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F94720A16F7227A00F4A580 /* MFSimpleDatabase.m */; };
-		1F94721116F7230C00F4A580 /* NSObject+MFDictionaryAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F94721016F7230C00F4A580 /* NSObject+MFDictionaryAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F15ADC316F8420E000932C7 /* MFDbRow+DictionaryAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFDbRow+DictionaryAdapter.h"; sourceTree = "<group>"; };
+		1F15ADC416F8420E000932C7 /* MFDbRow+DictionaryAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MFDbRow+DictionaryAdapter.m"; sourceTree = "<group>"; };
 		1F9471D116F71F9800F4A580 /* MFSimpleDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFSimpleDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9471D416F71F9800F4A580 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F9471D616F71F9800F4A580 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,9 +61,6 @@
 		1F94720816F7227A00F4A580 /* MFDbRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDbRow.m; sourceTree = "<group>"; };
 		1F94720916F7227A00F4A580 /* MFSimpleDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSimpleDatabase.h; sourceTree = "<group>"; };
 		1F94720A16F7227A00F4A580 /* MFSimpleDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSimpleDatabase.m; sourceTree = "<group>"; };
-		1F94720E16F722EE00F4A580 /* MFDictionaryAccessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFDictionaryAccessor.h; sourceTree = "<group>"; };
-		1F94720F16F7230C00F4A580 /* NSObject+MFDictionaryAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MFDictionaryAdapter.h"; sourceTree = "<group>"; };
-		1F94721016F7230C00F4A580 /* NSObject+MFDictionaryAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MFDictionaryAdapter.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,13 +160,12 @@
 		1F94720416F7224700F4A580 /* MFSD */ = {
 			isa = PBXGroup;
 			children = (
-				1F94720E16F722EE00F4A580 /* MFDictionaryAccessor.h */,
-				1F94720F16F7230C00F4A580 /* NSObject+MFDictionaryAdapter.h */,
-				1F94721016F7230C00F4A580 /* NSObject+MFDictionaryAdapter.m */,
 				1F94720516F7227A00F4A580 /* MFDbCollection.h */,
 				1F94720616F7227A00F4A580 /* MFDbCollection.m */,
 				1F94720716F7227A00F4A580 /* MFDbRow.h */,
 				1F94720816F7227A00F4A580 /* MFDbRow.m */,
+				1F15ADC316F8420E000932C7 /* MFDbRow+DictionaryAdapter.h */,
+				1F15ADC416F8420E000932C7 /* MFDbRow+DictionaryAdapter.m */,
 				1F94720916F7227A00F4A580 /* MFSimpleDatabase.h */,
 				1F94720A16F7227A00F4A580 /* MFSimpleDatabase.m */,
 			);
@@ -250,7 +248,7 @@
 				1F94720B16F7227A00F4A580 /* MFDbCollection.m in Sources */,
 				1F94720C16F7227A00F4A580 /* MFDbRow.m in Sources */,
 				1F94720D16F7227A00F4A580 /* MFSimpleDatabase.m in Sources */,
-				1F94721116F7230C00F4A580 /* NSObject+MFDictionaryAdapter.m in Sources */,
+				1F15ADC516F8420E000932C7 /* MFDbRow+DictionaryAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
