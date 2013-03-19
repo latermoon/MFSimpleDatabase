@@ -28,26 +28,23 @@
     NSString *tableName;
 }
 
-#pragma mark
-#pragma mark Properties
+#pragma mark - Properties
 @property (readonly) MFSimpleDatabase *database;
 // 当前表名
 @property (readonly) NSString *tableName;
 
-#pragma mark
-#pragma mark Init
+#pragma mark - Init
 + (MFDbCollection *)collectionWithDatabase:(MFSimpleDatabase *)_database table:(NSString *)_tableName;
 - (MFDbCollection *)initWithDatabase:(MFSimpleDatabase *)_database table:(NSString *)_tableName;
 
 - (BOOL)exists;
 
-#pragma mark
-#pragma mark findOne
+#pragma mark - findOne
 // 查找数据库中的一行数据
 - (MFDbRow *)findOne:(NSString *)query;
 - (MFDbRow *)findOne:(NSString *)query fields:(NSArray *)fields;
-#pragma mark
-#pragma mark find
+
+#pragma mark  find
 // find的参数都可以为nil或者-1表示默认值，或不指定
 - (MFDbList *)find;
 - (MFDbList *)find:(NSString *)query;
@@ -59,39 +56,34 @@
 // 实现数据库的in操作
 - (NSDictionary *)findByKey:(NSString *)key andValues:(NSArray *)values fields:(NSArray *)fields;
 
-#pragma mark
-#pragma mark Insert
+#pragma mark - Insert
 - (BOOL)insert:(NSDictionary *)dictObj;
 // upsert = update or insert，要求表中带有UniqueIndex，并且存在dictObj里
 - (BOOL)upsert:(NSDictionary *)dictObj;
 - (NSUInteger)batchUpsert:(NSArray *)dictObjArray;
 
-#pragma mark
-#pragma mark Update
+#pragma mark - Update
 - (BOOL)update:(NSString *)query row:(NSDictionary *)dictObj;
 - (BOOL)updateForKey:(NSString *)key withValue:(id)value row:(NSDictionary *)dictObj;
 
-#pragma mark
-#pragma mark Delete
+#pragma mark - Delete
 // 删除全表数据
 - (BOOL)delete;
 // 自己构建更丰富的删除条件 delete:@"momoid='100422' or momoid='100428'"
 - (BOOL)delete:(NSString *)query;
 // 根据指定字段删除, 比如deleteForKey:@"momoid" withValue:@"100422"
 - (BOOL)deleteForKey:(NSString *)key withValue:(id)value;
-#pragma mark
-#pragma mark Drop
+
+#pragma mark - Drop
 // 删除某个表
 - (BOOL)drop:(NSString *)aTableName;
 
 @end
 
-#pragma mark
-#pragma mark Private Method
+#pragma mark - Private Method
 @interface MFDbCollection (Private)
 
-#pragma mark
-#pragma mark INSERT/REPLACE INTO
+#pragma mark - INSERT/REPLACE INTO
 - (NSUInteger)insertOrReplaceUseUnionSQL:(NSString *)insertOrReplaceString rows:(NSArray *)dictObjArray;
 - (NSUInteger)insertOrReplaceUseMultiSQL:(NSString *)insertOrReplaceString rows:(NSArray *)dictObjArray;
 @end

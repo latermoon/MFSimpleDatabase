@@ -15,7 +15,7 @@
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        NSLog(@"Only Output @Console");
+        NSLog(@"No UI...");
         
         MFSimpleDatabase *db = [MFSimpleDatabase databaseWithPath:@""];
         [db executeUpdate:@"create table t1(name text, score integer)"];
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
         
         MFDbList *list = [coll find];
         for (MFDbRow *row in list) {
-            NSLog(@"row %@", row);
+            NSLog(@"%@", row);
         }
         
         MFDbRow *row3 = [coll findOne:@"name='A'" fields:@[@"name", @"score"]];

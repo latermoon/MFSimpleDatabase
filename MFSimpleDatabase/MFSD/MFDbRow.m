@@ -56,7 +56,20 @@
 #pragma mark - Overide
 - (NSString *)description
 {
-    return [dataDict description];
+    NSMutableString *buf = [[NSMutableString alloc] init];
+    NSArray *keys = [dataDict allKeys];
+    [buf appendString:@"{"];
+    for (int i = 0; i < [keys count]; i ++) {
+        if (i > 0) {
+            [buf appendString:@", "];
+        }
+        NSString *key = [keys objectAtIndex:i];
+        [buf appendString:key];
+        [buf appendString:@"="];
+        [buf appendString:[[dataDict objectForKey:key] description]];
+    }
+    [buf appendString:@"}"];
+    return [buf description];
 }
 
 // 如果dataDict本身是NSMutableDictionary

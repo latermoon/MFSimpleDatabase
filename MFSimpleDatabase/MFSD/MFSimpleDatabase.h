@@ -30,8 +30,8 @@
     FMDatabaseQueue *innerDb;
     // 对collection:tableName方法进行缓存
     NSMutableDictionary *collCache;
-    // 当前打开事务的计数器
-    NSUInteger transactionCounter;
+    // 事务队列
+    dispatch_queue_t transationQueue;
 }
 
 // 需要使用原生SQL语句时可以直接调用innerDb
@@ -42,9 +42,7 @@
 - (MFSimpleDatabase *)initWithPath:(NSString *)path;
 
 #pragma mark - Transaction
-- (void)beginTransaction;
-- (void)rollback;
-- (void)commit;
+- (void)inTransaction:(void (^)(MFSimpleDatabase *mfdb, BOOL *rollback))block;
 
 #pragma mark - Collection
 // 获取数据库中的一个表

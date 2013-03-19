@@ -22,7 +22,6 @@
 {
     self = [super init];
     if (self) {
-        transactionCounter = 0;
         innerDb = [[FMDatabaseQueue databaseQueueWithPath:path] retain];
         [innerDb inDatabase:^(FMDatabase *db) {
             // 如果需要详细的执行日志，可打开下面注释
@@ -36,7 +35,6 @@
 
 - (void)dealloc
 {
-    //[self commit];
     [collCache release];
     [innerDb close];
     [innerDb release];
@@ -44,38 +42,9 @@
 }
 
 #pragma mark - Transaction
-- (void)beginTransaction
+- (void)inTransaction:(void (^)(MFSimpleDatabase *mfdb, BOOL *rollback))block
 {
-    [innerDb inDatabase:^(FMDatabase *db) {
-        transactionCounter ++;
-        if (![db inTransaction]) {
-            [db beginTransaction];
-        }
-    }];
-}
-
-- (void)rollback
-{
-    [innerDb inDatabase:^(FMDatabase *db) {
-        if ([db inTransaction]) {
-            [db rollback];
-        }
-    }];
-}
-
-- (void)commit
-{
-    [innerDb inDatabase:^(FMDatabase *db) {
-        transactionCounter --;
-        // 合并多次打开的事务，最后一次commit才真正提交
-        if (transactionCounter == 0) {
-            if ([db inTransaction]) {
-                [db commit];
-            } else {
-                NSLog(@"commit not inTransaction");
-            }
-        }
-    }];
+    
 }
 
 #pragma mark
