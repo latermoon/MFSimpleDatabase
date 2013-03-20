@@ -29,6 +29,7 @@
             [db setLogsErrors:YES];
         }];
         collCache = [[NSMutableDictionary alloc] initWithCapacity:20];
+		transationQueue = dispatch_queue_create([NSString stringWithFormat:@"mfdb.%@", path], NULL);
     }
     return self;
 }
@@ -38,6 +39,7 @@
     [collCache release];
     [innerDb close];
     [innerDb release];
+	dispatch_release(transationQueue);
     [super dealloc];
 }
 
